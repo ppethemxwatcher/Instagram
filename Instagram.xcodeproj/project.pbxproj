@@ -23,6 +23,11 @@
 		EC3CA4241CA43235009F656E /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CA4231CA43235009F656E /* PostData.swift */; };
 		EC3CA4271CA4343D009F656E /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CA4251CA4343D009F656E /* PostTableViewCell.swift */; };
 		EC3CA4281CA4343D009F656E /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3CA4261CA4343D009F656E /* PostTableViewCell.xib */; };
+		EC6562161CA95FF0002580F4 /* AdobeCreativeSDKCore.framework in Resources */ = {isa = PBXBuildFile; fileRef = ECFEE1001CA3C74600E5D3C3 /* AdobeCreativeSDKCore.framework */; };
+		EC6562171CA95FFB002580F4 /* AdobeCreativeSDKImage.framework in Resources */ = {isa = PBXBuildFile; fileRef = ECFEE1011CA3C74600E5D3C3 /* AdobeCreativeSDKImage.framework */; };
+		EC6562181CA96023002580F4 /* Instagram-Bridging-Header.h in Resources */ = {isa = PBXBuildFile; fileRef = EC3CA4221CA42067009F656E /* Instagram-Bridging-Header.h */; };
+		EC6562191CA96047002580F4 /* AdobeCreativeSDKCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECFEE1041CA3C7D900E5D3C3 /* AdobeCreativeSDKCoreResources.bundle */; };
+		EC65621A1CA9604B002580F4 /* AdobeCreativeSDKImageResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECFEE1061CA3C7E600E5D3C3 /* AdobeCreativeSDKImageResources.bundle */; };
 		ECA87A481CA03E8100BFCD5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA87A471CA03E8100BFCD5B /* AppDelegate.swift */; };
 		ECA87A4A1CA03E8100BFCD5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA87A491CA03E8100BFCD5B /* ViewController.swift */; };
 		ECA87A4D1CA03E8100BFCD5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA87A4B1CA03E8100BFCD5B /* Main.storyboard */; };
@@ -37,8 +42,6 @@
 		ECEF296C1CA8D58E008D74CD /* CommentPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF296B1CA8D58E008D74CD /* CommentPostViewController.swift */; };
 		ECFEE1021CA3C74600E5D3C3 /* AdobeCreativeSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECFEE1001CA3C74600E5D3C3 /* AdobeCreativeSDKCore.framework */; };
 		ECFEE1031CA3C74600E5D3C3 /* AdobeCreativeSDKImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECFEE1011CA3C74600E5D3C3 /* AdobeCreativeSDKImage.framework */; };
-		ECFEE1051CA3C7D900E5D3C3 /* AdobeCreativeSDKCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECFEE1041CA3C7D900E5D3C3 /* AdobeCreativeSDKCoreResources.bundle */; };
-		ECFEE1071CA3C7E600E5D3C3 /* AdobeCreativeSDKImageResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECFEE1061CA3C7E600E5D3C3 /* AdobeCreativeSDKImageResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -243,11 +246,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECFEE1051CA3C7D900E5D3C3 /* AdobeCreativeSDKCoreResources.bundle in Resources */,
+				EC65621A1CA9604B002580F4 /* AdobeCreativeSDKImageResources.bundle in Resources */,
+				EC6562191CA96047002580F4 /* AdobeCreativeSDKCoreResources.bundle in Resources */,
+				EC6562181CA96023002580F4 /* Instagram-Bridging-Header.h in Resources */,
+				EC6562171CA95FFB002580F4 /* AdobeCreativeSDKImage.framework in Resources */,
+				EC6562161CA95FF0002580F4 /* AdobeCreativeSDKCore.framework in Resources */,
 				ECA87A521CA03E8100BFCD5B /* LaunchScreen.storyboard in Resources */,
 				ECA87A4F1CA03E8100BFCD5B /* Assets.xcassets in Resources */,
 				EC3CA4281CA4343D009F656E /* PostTableViewCell.xib in Resources */,
-				ECFEE1071CA3C7E600E5D3C3 /* AdobeCreativeSDKImageResources.bundle in Resources */,
 				ECA87A4D1CA03E8100BFCD5B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

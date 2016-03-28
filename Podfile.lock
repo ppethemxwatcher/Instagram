@@ -1,0 +1,16 @@
+PODS:
+  - ESTabBarController (0.1.2)
+  - Firebase (2.5.1)
+  - SVProgressHUD (2.0)
+
+DEPENDENCIES:
+  - ESTabBarController
+  - Firebase
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  ESTabBarController: ef57e22d9835c7142d3681d38ac158006c40465f
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  SVProgressHUD: e9e7c893686a20da55a28015ed384d9425e15479
+
+COCOAPODS: 0.39.0
