@@ -13,8 +13,10 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
+    @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
 
     
     var postData: PostData?
@@ -52,6 +54,15 @@ class PostTableViewCell: UITableViewCell {
         } else {
             let buttonImage = UIImage(named: "like_none")
         likeButton.setImage(buttonImage, forState: UIControlState.Normal)
+        }
+        
+        //コメントが入ったら投稿者の名前とコメントを改行しながら追加
+        commentLabel.text = ""
+        for var commentData = 0; commentData < postData!.comment.count; commentData++    {
+            if commentData > 0 {
+                commentLabel.text = commentLabel.text! + "\n"
+            }
+            commentLabel.text! = commentLabel.text! + "\(postData!.followername[commentData]): \(postData!.comment[commentData])"
         }
         
         super.layoutSubviews()

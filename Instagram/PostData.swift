@@ -18,6 +18,8 @@ class PostData: NSObject {
     var date: NSDate?
     var likes: [String] = []
     var isLiked: Bool = false
+    var followername: [String] = []
+    var comment: [String] = []
     
     init(snapshot: FDataSnapshot, myId: String) {
         id = snapshot.key
@@ -30,6 +32,14 @@ class PostData: NSObject {
         
         if let likes = snapshot.value.objectForKey("likes") as? [String] {
         self.likes = likes
+        }
+        
+        if let followername = snapshot.value.objectForKey("followername") as? [String] {
+        self.followername = followername
+        }
+        
+        if let comment = snapshot.value.objectForKey("comment") as? [String] {
+        self.comment = comment
         }
         
         for likeId in likes {

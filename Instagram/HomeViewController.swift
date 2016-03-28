@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var firebaseRef:Firebase!
     var postArray: [PostData] = []
+    var commentIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,11 +61,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //削除したところに更新済みのデータを追加する
             self.postArray.insert(postData, atIndex: index)
             
-            //該当セルだけ更新していたのを全体を更新するように修正
-            self.tableView.reloadData()
+            //TableViewの該当セルだけを更新する
+            let indexPath = NSIndexPath(forRow: index, inSection:0)
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             
         })
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,8 +83,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! PostTableViewCell
         cell.postData = postArray[indexPath.row]
         
-        //セル内のボタンのアクションをソースコードで設定する
+        //セル内のボタンのアクションをソースコードで設定する(likeButton)
         cell.likeButton.addTarget(self, action: "handleButton:event:", forControlEvents: UIControlEvents.TouchUpInside)
+
+        //セル内のボタンのアクションをソースコードで設定する(CommentButton)
+        cell.commentButton.addTarget(self, action:"commentButton:event:", forControlEvents:  UIControlEvents.TouchUpInside)
         
         //UILabelの行数が変わっている可能性があるので再描画する
         cell.layoutIfNeeded()
@@ -102,7 +106,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //セルをタップされたら何もせずに選択状態を解除する
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
+
+    func commentButton(sender: UIButton, event:UIEvent){
+        
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        commentIndex = indexPath!.row
+        
+        let commentPostViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CommentPost") as! CommentPostViewController
+        
+        commentPostViewController.post = postArray[commentIndex]
+        presentViewController(commentPostViewController, animated: true, completion: nil)
+    }
     
     //セル内のボタンがタップされた時に呼ばれるメソッド
     func handleButton(sender: UIButton, event:UIEvent){
@@ -114,6 +130,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         //配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
+        print(postData.comment)
         
         //Firebaseに保存するデータの準備
         let uid = firebaseRef.authData.uid
@@ -141,9 +158,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let caption = postData.caption
         let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
         let likes = postData.likes
+        let followername = postData.followername
+        let comment = postData.comment
         
         //辞書を作成してFirebaseに保存する
-        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes]
+        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "followername": followername, "comment": comment]
         let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
         postRef.childByAppendingPath(postData.id).setValue(post)
     }
