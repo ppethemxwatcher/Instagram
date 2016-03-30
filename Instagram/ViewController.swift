@@ -8,7 +8,7 @@
 
 import UIKit
 import ESTabBarController
-import Firebase //先頭でFirebaseをimportしておく
+import Firebase
 
 class ViewController: UIViewController {
 
