@@ -17,6 +17,7 @@ class CommentPostViewController: UIViewController {
     var post = PostData!()
 
     //コメント投稿ボタンをタップした時に呼ばれるメソッド
+    //
     @IBAction func handleCommentPostButton(sender: AnyObject) {
         
         let postData = self.post
